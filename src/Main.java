@@ -63,7 +63,18 @@ void main() {
     System.out.print("Your number in binary is : ");
     //loop for printing binary number from arr
     for(int k = 0; k < arr.length; k++){
-        System.out.print(arr[k]);
+
+        if(arr.length > 1){
+            if(arr[0] == 0){
+
+            }else{
+                System.out.print(arr[k]);
+            }
+
+        }else {
+            System.out.print(arr[k]);
+        }
+
     }
 
 
