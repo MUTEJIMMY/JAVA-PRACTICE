@@ -34,26 +34,36 @@ void main() {
     System.out.println("This should be the 2^n that we are subtracting by: " + subTractor + ". ");
 
     //this is the array for our binary calculation, the size is our 2^n(subTractor) + 1 b/c we need to do one more calcuation at 2^0 or sum like that
-    int[] arr = new int[((int) subTractor) + 1];
+    int[] arr = new int[((int) i) + 1];
 
+    //this is the copy we are modifying
+    double userInputCopy = userInput;
 
     //this is the for loop for calculation. we make a new var j and we decerement b/c j is some 2^n, we also run until j is less than 0. that is denoted by j>=0
-    for(double j = i; j >= 0; j--){
+    for(double j = i ; j >= 0; j--){
 
         //b/c j is some 2^n in order to add it to the first postion we need to subtract by the length of our array to flip the indexing
-        int posJ = arr.length - ((int) j);
+        int posJ = arr.length - ((int) j) -1;
 
         //this is to check wether the value of userInput - 2^j is <0 or >= 0
         double calculation = 0;
 
-        calculation = userInput - Math.pow(2, j);
+        calculation = userInputCopy - Math.pow(2, j);
 
         if((calculation < 0)) {
             arr[posJ] = 0;
         }else {
-            userInput = calculation;
+            userInputCopy = calculation;
             arr[posJ] = 1;
         }
+    }
+
+    System.out.println("Your orginal number was: " + userInput + ".");
+
+    System.out.print("Your number in binary is : ");
+    //loop for printing binary number from arr
+    for(int k = 0; k < arr.length; k++){
+        System.out.print(arr[k]);
     }
 
 
