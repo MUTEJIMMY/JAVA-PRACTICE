@@ -16,11 +16,14 @@ void main() {
         i++;
         if(Math.pow(2.0,i) <= userInput){
             subTractor = Math.pow(2.0,i);
-            System.out.println("We have enter the if the statement");
         }
 
     }
 
     System.out.println("This is the user input: " + userInput + ". ") ;
     System.out.println("This should be the 2^n that we are subtracting by: " + subTractor + ". ");
+
+    for(double j = i; j >= 0; j--){
+
+    }
 }
