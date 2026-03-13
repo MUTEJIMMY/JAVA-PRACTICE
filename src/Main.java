@@ -23,7 +23,12 @@ void main() {
     System.out.println("This is the user input: " + userInput + ". ") ;
     System.out.println("This should be the 2^n that we are subtracting by: " + subTractor + ". ");
 
+    double calculation = 0;
     for(double j = i; j >= 0; j--){
+        if((userInput - Math.pow(2,i) == 0)) {
+            calculation = userInput - Math.pow(2, i);
+        }else {
 
+        }
     }
 }
