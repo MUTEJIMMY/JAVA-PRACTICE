@@ -61,17 +61,15 @@ void main() {
     System.out.println("Your orginal number was: " + userInput + ".");
 
     System.out.print("Your number in binary is : ");
+
     //loop for printing binary number from arr
     for(int k = 0; k < arr.length; k++){
 
-        if(arr.length > 1){
-            if(arr[0] == 0){
+        if((arr.length > 1) && arr[0] == 0){
 
-            }else{
-                System.out.print(arr[k]);
-            }
+            //maybe I could do something here to not print that trailing zero but i'm Slightly stuck and also this is ineffiecnt.
 
-        }else {
+       }else {
             System.out.print(arr[k]);
         }
 
