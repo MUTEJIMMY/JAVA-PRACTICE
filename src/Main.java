@@ -63,16 +63,24 @@ void main() {
     System.out.print("Your number in binary is : ");
 
     //loop for printing binary number from arr
-    for(int k = 0; k < arr.length; k++){
 
-        if((arr.length > 1) && arr[0] == 0){
+    if((arr.length > 1) && arr[0] == 0){
 
-            //maybe I could do something here to not print that trailing zero but i'm Slightly stuck and also this is ineffiecnt.
 
-       }else {
+        for(int k = 1; k < arr.length; k++){
+
+
             System.out.print(arr[k]);
+
         }
 
+    }else{
+        for(int l = 1; l < arr.length; l++){
+
+
+            System.out.print(arr[l]);
+
+        }
     }
 
 
