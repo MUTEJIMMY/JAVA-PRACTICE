@@ -46,17 +46,19 @@ void main() {
     boolean check = true;
     String reply = "";
 
-    System.out.println("Type 1 if you want to convert from binary to numerical. Type 2 if you want to convert from numerical to binary.");
-    System.out.print(": ");
+    System.out.print("Type 1 if you want to convert from binary to numerical. Type 2 if you want to convert from numerical to binary:");
 
     int reCheck = 0;
         boolean c1 = true;
         while(c1) {
         try {
             reCheck = scan.nextInt();
+
             c1 = false;
         } catch (Exception e) {
-            System.out.println("Error");
+            System.out.print("Bad input type 1 for numerical to binary. 2 for binary to numerical:");
+            //to remove the bad inputt
+            scan.nextLine();
         }
     }
 
