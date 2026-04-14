@@ -1,13 +1,39 @@
 import java.util.*;
 
 //TODO methods for later to make code cleaner
-public double ConvertToBinary(){
+private double ConvertToBinary(){
 
 
 
     //this return will be the double for the code.
     return 0.0;
 }
+
+private double ConvertToNumerical(String binaryNumber){
+
+    double answer = 0;
+    int twoToTheNcounter = 0;
+    double subTracting = 0;
+
+
+    //this for loop starts at the end of the number and then decrement towards the front.
+    for(int i = binaryNumber.length()-1; i > -1; i--){
+
+        //here is the 2^n that we are adding
+        subTracting = Math.pow(2.0, twoToTheNcounter);
+
+        // we are checking if the spot in the number is 1
+        if(binaryNumber.charAt(i) == '1'){
+
+            //running total or adding
+            answer = answer + subTracting;
+        }
+
+        twoToTheNcounter ++;
+    }
+
+            return answer;
+        }
 
 
 void main() {
@@ -22,26 +48,53 @@ void main() {
 
     System.out.println("Type 1 if you want to convert from binary to numerical. Type 2 if you want to convert from numerical to binary.");
     System.out.print(": ");
-    int reCheck = scan.nextInt();
+
+    int reCheck = 0;
+        boolean c1 = true;
+        while(c1) {
+        try {
+            reCheck = scan.nextInt();
+            c1 = false;
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+    }
+
+
+
 
     if(reCheck == 1){
 
+        scan.nextLine();
+
         System.out.print("Type in your number in binary, and I'll convert it to numerical: 0b");
 
-        int binaryNumber = scan.nextInt();
+
+
+        //Take the user input as a string so we can interate through it as an array
+        String binaryNumber = scan.nextLine();
 
         System.out.println("The binary number you have choosen is 0b" + binaryNumber);
 
 
+        double convertedBinaryNumber = ConvertToNumerical(binaryNumber);
 
 
-    } else if (reCheck == 2) {
+        System.out.println("Here is your number answer: " + convertedBinaryNumber);
+
+
+
+    }
+    else if (reCheck == 2) {
 
 
         while (check) {
 
 
             System.out.print("Type in the number you want to convert to binary: ");
+
+
+
 
             // get user input as double for Math.pow
             double userInput = scan.nextDouble();
@@ -126,7 +179,11 @@ void main() {
             System.out.println();
             System.out.println("Do you want to convert another number to binary? (Y/N): ");
 
+
+
             reply = scan.nextLine();
+
+
 
             if (Objects.equals(reply, "Y") || Objects.equals(reply, "y")) {
 
