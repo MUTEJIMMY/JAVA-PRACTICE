@@ -50,11 +50,16 @@ void main() {
 
     int reCheck = 0;
     boolean c1 = true;
+
         while(c1) {
+
             try {
+
                 reCheck = scan.nextInt();
+
                 if(reCheck == 0 || reCheck == 1){
                     c1 = false;
+
                 }else{
                     System.out.print("Bad input type 1 for numerical to binary. 2 for binary to numerical:");
                 }
