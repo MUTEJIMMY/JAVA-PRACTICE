@@ -57,10 +57,10 @@ void main() {
 
                 reCheck = scan.nextInt();
 
-                if(reCheck == 0 || reCheck == 1){
+                if(reCheck == 1 || reCheck == 2){
                     c1 = false;
 
-                }else{
+                } else{
                     System.out.print("Bad input type 1 for numerical to binary. 2 for binary to numerical:");
                 }
             } catch (Exception e) {
@@ -133,6 +133,14 @@ void main() {
 
             //this is just nice words
             System.out.println("This is the user input: " + userInput + ". ");
+            try{
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+
+
             System.out.println("This should be the 2^n that we are subtracting by: " + subTractor + ". ");
 
             //this is the array for our binary calculation, the size is our 2^n(subTractor) + 1 b/c we need to do one more calcuation at 2^0 or sum like that
@@ -160,7 +168,22 @@ void main() {
                 }
             }
 
+            try{
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+
+
             System.out.println("Your orginal number was: " + userInput + ".");
+
+            try{
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
 
             System.out.print("Your number in binary is : 0b");
 
@@ -186,7 +209,13 @@ void main() {
 
                 }
             }
-            System.out.println();
+            try{
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            System.out.println("");
             System.out.println("Do you want to convert another number to binary? (Y/N): ");
 
 
