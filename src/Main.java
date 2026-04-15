@@ -45,7 +45,7 @@ void main() {
 
     boolean check = true;
     String reply = "";
-
+    while (check) {
     System.out.print("Type 1 if you want to convert from binary to numerical. Type 2 if you want to convert from numerical to binary:");
 
     int reCheck = 0;
@@ -98,7 +98,7 @@ void main() {
     else if (reCheck == 2) {
 
 
-        while (check) {
+
 
 
             System.out.print("Type in the number you want to convert to binary: ");
@@ -106,8 +106,15 @@ void main() {
 
 
 
-            // get user input as double for Math.pow
-            double userInput = scan.nextDouble();
+            double userInput = 0.0;
+            try {
+                // get user input as double for Math.pow
+                userInput = scan.nextDouble();
+            } catch (Exception e) {
+                System.out.print("Bad input type 1 for numerical to binary. 2 for binary to numerical:");
+            }
+
+        System.out.println("");
 
             //clearing the scanner
             scan.nextLine();
@@ -133,12 +140,11 @@ void main() {
 
             //this is just nice words
             System.out.println("This is the user input: " + userInput + ". ");
-            try{
-                Thread.sleep(1000);
+            try {
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-
 
 
             System.out.println("This should be the 2^n that we are subtracting by: " + subTractor + ". ");
@@ -168,24 +174,23 @@ void main() {
                 }
             }
 
-            try{
-                Thread.sleep(1000);
+            try {
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-
 
 
             System.out.println("Your orginal number was: " + userInput + ".");
 
-            try{
-                Thread.sleep(1000);
+            try {
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
 
 
-            System.out.print("Your number in binary is : 0b");
+            System.out.print("Your number in binary is :0b");
 
             //loop for printing binary number from arr
 
@@ -209,19 +214,17 @@ void main() {
 
                 }
             }
-            try{
-                Thread.sleep(1000);
+            try {
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
 
             System.out.println("");
-            System.out.println("Do you want to convert another number to binary? (Y/N): ");
-
+            System.out.print("Do you want to do another conversion? (Y/N): ");
 
 
             reply = scan.nextLine();
-
 
 
             if (Objects.equals(reply, "Y") || Objects.equals(reply, "y")) {
@@ -233,9 +236,10 @@ void main() {
 
             }
 
-        }
-    } else{
 
+        } else{
+
+        }
     }
     System.out.println("Thank you for using my program");
 }
