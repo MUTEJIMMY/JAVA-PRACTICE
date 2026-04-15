@@ -9,7 +9,7 @@ private double ConvertToBinary(){
     return 0.0;
 }
 
-private void Waiting(){
+private void waiting(){
     try {
         Thread.sleep(2000);
     } catch (InterruptedException e) {
@@ -20,24 +20,24 @@ private void Waiting(){
 private double ConvertToNumerical(String binaryNumber){
 
     double answer = 0;
-    int twoToTheNcounter = 0;
-    double subTracting = 0;
+    int twoToTheN = 0;
+    double subtracting;
 
 
     //this for loop starts at the end of the number and then decrement towards the front.
     for(int i = binaryNumber.length()-1; i > -1; i--){
 
         //here is the 2^n that we are adding
-        subTracting = Math.pow(2.0, twoToTheNcounter);
+        subtracting = Math.pow(2.0, twoToTheN);
 
         // we are checking if the spot in the number is 1
         if(binaryNumber.charAt(i) == '1'){
 
             //running total or adding
-            answer = answer + subTracting;
+            answer = answer + subtracting;
         }
 
-        twoToTheNcounter ++;
+        twoToTheN++;
     }
 
             return answer;
@@ -51,7 +51,7 @@ void main() {
 
 
     boolean check = true;
-    String reply = "";
+    String reply;
     while (check) {
     System.out.print("Type 1 if you want to convert from binary to numerical. Type 2 if you want to convert from numerical to binary:");
 
@@ -86,14 +86,14 @@ void main() {
 
         System.out.print("Type in your number in binary, and I'll convert it to numerical: 0b");
 
-        Waiting();
+        waiting();
 
-        //Take the user input as a string so we can interate through it as an array
+        //Take the user input as a string so we can iterate through it as an array
         String binaryNumber = scan.nextLine();
 
-        System.out.println("The binary number you have choosen is 0b" + binaryNumber);
+        System.out.println("The binary number you have chosen is 0b" + binaryNumber);
 
-        Waiting();
+        waiting();
 
 
         double convertedBinaryNumber = ConvertToNumerical(binaryNumber);
@@ -123,7 +123,7 @@ void main() {
                 System.out.print("Bad input type 1 for numerical to binary. 2 for binary to numerical:");
             }
 
-        System.out.println("");
+        System.out.println();
 
             //clearing the scanner
             scan.nextLine();
@@ -150,25 +150,25 @@ void main() {
             //this is just nice words
             System.out.println("This is the user input: " + userInput + ". ");
 
-            Waiting();
+            waiting();
 
 
             System.out.println("This should be the 2^n that we are subtracting by: " + subTractor + ". ");
 
-            //this is the array for our binary calculation, the size is our 2^n(subTractor) + 1 b/c we need to do one more calcuation at 2^0 or sum like that
+            //this is the array for our binary calculation, the size is our 2^n(subTractor) + 1 b/c we need to do one more calculation at 2^0 or sum like that
             int[] arr = new int[((int) i) + 1];
 
             //this is the copy we are modifying
             double userInputCopy = userInput;
 
-            //this is the for loop for calculation. we make a new var j and we decerement b/c j is some 2^n, we also run until j is less than 0. that is denoted by j>=0
+            //this is the for loop for calculation. we make a new var j, and we decrement b/c j is some 2^n, we also run until j is less than 0. that is denoted by j>=0
             for (double j = i; j >= 0; j--) {
 
-                //b/c j is some 2^n in order to add it to the first postion we need to subtract by the length of our array to flip the indexing
+                //b/c j is some 2^n in order to add it to the first position we need to subtract by the length of our array to flip the indexing
                 int posJ = arr.length - ((int) j) - 1;
 
-                //this is to check wether the value of userInput - 2^j is <0 or >= 0
-                double calculation = 0;
+                //this is to check whether the value of userInput - 2^j is <0 or >= 0
+                double calculation;
 
                 calculation = userInputCopy - Math.pow(2, j);
 
@@ -180,12 +180,12 @@ void main() {
                 }
             }
 
-            Waiting();
+            waiting();
 
 
-            System.out.println("Your orginal number was: " + userInput + ".");
+            System.out.println("Your original number was: " + userInput + ".");
 
-            Waiting();
+            waiting();
 
 
             System.out.print("Your number in binary is :0b");
@@ -212,9 +212,9 @@ void main() {
 
                 }
             }
-            Waiting();
+            waiting();
 
-            System.out.println("");
+            System.out.println();
             System.out.print("Do you want to do another conversion? (Y/N): ");
 
 
@@ -230,8 +230,6 @@ void main() {
 
             }
 
-
-        } else{
 
         }
     }
