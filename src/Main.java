@@ -35,6 +35,14 @@ private double ConvertToNumerical(String binaryNumber){
             return answer;
         }
 
+        private void Waiting(){
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
 
 void main() {
 
@@ -79,12 +87,14 @@ void main() {
 
         System.out.print("Type in your number in binary, and I'll convert it to numerical: 0b");
 
-
+        Waiting();
 
         //Take the user input as a string so we can interate through it as an array
         String binaryNumber = scan.nextLine();
 
         System.out.println("The binary number you have choosen is 0b" + binaryNumber);
+
+        Waiting();
 
 
         double convertedBinaryNumber = ConvertToNumerical(binaryNumber);
@@ -140,11 +150,8 @@ void main() {
 
             //this is just nice words
             System.out.println("This is the user input: " + userInput + ". ");
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+
+            Waiting();
 
 
             System.out.println("This should be the 2^n that we are subtracting by: " + subTractor + ". ");
@@ -174,20 +181,12 @@ void main() {
                 }
             }
 
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            Waiting();
 
 
             System.out.println("Your orginal number was: " + userInput + ".");
 
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            Waiting();
 
 
             System.out.print("Your number in binary is :0b");
@@ -214,11 +213,7 @@ void main() {
 
                 }
             }
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            Waiting();
 
             System.out.println("");
             System.out.print("Do you want to do another conversion? (Y/N): ");
