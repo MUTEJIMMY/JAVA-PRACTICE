@@ -9,6 +9,14 @@ private double ConvertToBinary(){
     return 0.0;
 }
 
+private void Waiting(){
+    try {
+        Thread.sleep(2000);
+    } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+    }
+}
+
 private double ConvertToNumerical(String binaryNumber){
 
     double answer = 0;
@@ -34,15 +42,6 @@ private double ConvertToNumerical(String binaryNumber){
 
             return answer;
         }
-
-        private void Waiting(){
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
 
 void main() {
 
