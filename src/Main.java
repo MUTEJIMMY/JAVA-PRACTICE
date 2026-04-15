@@ -87,10 +87,22 @@ void main() {
         System.out.print("Type in your number in binary, and I'll convert it to numerical: 0b");
 
         waiting();
+        boolean c2 = true;
+        String binaryNumber = "";
+        while(c2) {
 
-        //Take the user input as a string so we can iterate through it as an array
-        String binaryNumber = scan.nextLine();
+            try {
+                //Take the user input as a string so we can iterate through it as an array
+                binaryNumber = scan.nextLine();
 
+                c2 = false;
+
+            }
+            catch(Exception e){
+
+                System.out.println("Bad input, type in your number in binary: 0b");
+            }
+        }
         System.out.println("The binary number you have chosen is 0b" + binaryNumber);
 
         waiting();
