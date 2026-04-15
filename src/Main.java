@@ -113,7 +113,7 @@ void main() {
 
         System.out.println("Here is your number answer: " + convertedBinaryNumber);
 
-
+        waiting();
 
     }
     else if (reCheck == 2) {
@@ -149,7 +149,7 @@ void main() {
             //this loop checks the user input and find outs which 2^n we have to subtract by for the binary.
             while (userInput > Math.pow(2.0, i)) {
 
-                //increment before we check b/c its works for some reason
+                //increment before we check
                 i++;
 
                 //this is to set the 2^n to a var to use only when the 2^n+1 is bigger than user input.
@@ -163,7 +163,6 @@ void main() {
             System.out.println("This is the user input: " + userInput + ". ");
 
             waiting();
-
 
             System.out.println("This should be the 2^n that we are subtracting by: " + subTractor + ". ");
 
@@ -226,24 +225,27 @@ void main() {
             }
             waiting();
 
-            System.out.println();
-            System.out.print("Do you want to do another conversion? (Y/N): ");
 
-
-            reply = scan.nextLine();
-
-
-            if (Objects.equals(reply, "Y") || Objects.equals(reply, "y")) {
-
-            } else {
-
-                //check being false ends the while loop
-                check = false;
-
-            }
 
 
         }
+
+        System.out.println();
+        System.out.print("Do you want to do another conversion? (Y/N): ");
+
+
+        reply = scan.nextLine();
+
+
+        if (Objects.equals(reply, "Y") || Objects.equals(reply, "y")) {
+
+        } else {
+
+            //check being false ends the while loop
+            check = false;
+
+        }
+
     }
     System.out.println("Thank you for using my program");
 }
