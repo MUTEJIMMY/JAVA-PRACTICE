@@ -159,8 +159,10 @@ void main() {
 
                         c3 = false;
 
-                        negNum = true;
-                        userInput = userInput * -1;
+                        if(userInput < 0 ) {
+                            negNum = true;
+                            userInput = userInput * -1;
+                        }
 
                 } catch (Exception e) {
                     System.out.print("Bad input type type the number you want to convert to binary:");
@@ -249,7 +251,7 @@ void main() {
             //loop for printing binary number from arr
 
 
-            //
+
             if ((arr.length > 1) && arr[0] == 0) {
 
 
