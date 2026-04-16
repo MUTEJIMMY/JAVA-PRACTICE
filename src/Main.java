@@ -33,6 +33,8 @@ private double ConvertToNumerical(String binaryNumber){
         subtracting = Math.pow(2.0, twoToTheN);
 
         // we are checking if the spot in the number is 1
+
+        System.out.println("binary nmber in method is " + binaryNumber);
         if(binaryNumber.charAt(i) == '1'){
 
             //running total or adding
@@ -114,12 +116,14 @@ void main() {
         double convertedBinaryNumber = -1;
 
         while(convertedBinaryNumber == -1) {
+
             convertedBinaryNumber = ConvertToNumerical(binaryNumber);
 
             System.out.print("Bad input try again, type in your number in binary: 0b");
 
-
             scan.nextLine();
+
+            binaryNumber = scan.nextLine();
 
         }
 
