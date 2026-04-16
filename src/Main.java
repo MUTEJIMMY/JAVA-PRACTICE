@@ -38,10 +38,7 @@ private double ConvertToNumerical(String binaryNumber){
 
             //running total or adding
             answer = answer + subtracting;
-        }else{
-
-        }
-        if(binaryNumber.charAt(i) != '0' && binaryNumber.charAt(i) != '1'){
+        }else if(binaryNumber.charAt(i) != '0' && binaryNumber.charAt(i) != '1'){
             answer = -1;
         }
 
