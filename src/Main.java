@@ -1,14 +1,5 @@
 import java.util.*;
 
-//TODO methods for later to make code cleaner
-private double ConvertToBinary(){
-
-
-
-    //this return will be the double for the code.
-    return 0.0;
-}
-
 private void waiting(){
     try {
         Thread.sleep(2000);
@@ -16,8 +7,6 @@ private void waiting(){
         throw new RuntimeException(e);
     }
 }
-
-
 
 private double ConvertToNumerical(String binaryNumber){
 
@@ -343,4 +332,13 @@ void main() {
 
     }
     System.out.println("Thank you for using my program");
+}
+
+//TODO methods for later to make code cleaner
+private double ConvertToBinary(){
+
+
+
+    //this return will be the double for the code.
+    return 0.0;
 }
