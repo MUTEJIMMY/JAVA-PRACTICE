@@ -89,20 +89,32 @@ void main() {
 
         scan.nextLine();
 
-        System.out.print("Is your binary number negative? (Y/N): ");
 
 
-        String negReply = scan.nextLine();
+
+        boolean run = true;
 
         boolean negNum1 = false;
-        if (Objects.equals(negReply, "Y") || Objects.equals(negReply, "y")) {
 
-            System.out.print("Type in your number in binary, and I'll convert it to numerical: -0b");
-            negNum1 = true;
+        while(run) {
 
-        } else {
+            System.out.print("Is your binary number negative? (Y/N): ");
 
-            System.out.print("Type in your number in binary, and I'll convert it to numerical: 0b");
+            String negReply = scan.nextLine();
+
+            if (Objects.equals(negReply, "Y") || Objects.equals(negReply, "y")) {
+
+                System.out.print("Type in your number in binary, and I'll convert it to numerical: -0b");
+                negNum1 = true;
+                run = false;
+
+            } else if (Objects.equals(negReply, "N") || Objects.equals(negReply, "n")) {
+
+                System.out.print("Type in your number in binary, and I'll convert it to numerical: 0b");
+                run = false;
+            } else {
+                System.out.println("Bad Input try again.");
+            }
         }
 
 
