@@ -41,7 +41,7 @@ private double ConvertToNumerical(String binaryNumber){
         }else{
 
         }
-        if(binaryNumber.charAt(i) == 0 || binaryNumber.charAt(i) == 1){
+        if(binaryNumber.charAt(i) != '0' && binaryNumber.charAt(i) != '1'){
             answer = -1;
         }
 
@@ -111,7 +111,8 @@ void main() {
                 System.out.println("Bad input, type in your number in binary: 0b");
             }
         }
-
+        scan.nextLine();
+        System.out.println();
         double convertedBinaryNumber = -1;
 
         while(convertedBinaryNumber == -1) {
@@ -120,8 +121,9 @@ void main() {
 
 
             if(convertedBinaryNumber == -1) {
+
                 System.out.print("Bad input try again, type in your number in binary: 0b");
-                scan.nextLine();
+
 
                 binaryNumber = scan.nextLine();
             }
