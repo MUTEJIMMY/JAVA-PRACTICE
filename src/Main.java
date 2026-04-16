@@ -17,6 +17,8 @@ private void waiting(){
     }
 }
 
+
+
 private double ConvertToNumerical(String binaryNumber){
 
     double answer = 0;
@@ -36,7 +38,10 @@ private double ConvertToNumerical(String binaryNumber){
             //running total or adding
             answer = answer + subtracting;
         }else{
-            answer = -1.0;
+
+        }
+        if(binaryNumber.charAt(i) != 0 || binaryNumber.charAt(i) != 1){
+            answer = -1;
         }
 
         twoToTheN++;
@@ -106,12 +111,16 @@ void main() {
             }
         }
 
-        double convertedBinaryNumber = 0;
+        double convertedBinaryNumber = -1;
 
-        while(convertedBinaryNumber > -1) {
+        while(convertedBinaryNumber == -1) {
             convertedBinaryNumber = ConvertToNumerical(binaryNumber);
 
-            System.out.println("Bad input try again, type in your number in binary: 0b");
+            System.out.print("Bad input try again, type in your number in binary: 0b");
+
+
+            scan.nextLine();
+
         }
 
         System.out.println("The binary number you have chosen is 0b" + binaryNumber);
