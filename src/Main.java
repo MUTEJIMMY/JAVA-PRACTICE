@@ -155,11 +155,12 @@ void main() {
                 try {
                     // get user input as double for Math.pow
                     userInput = scan.nextDouble();
-                    if(userInput > 0){
+                    if(userInput > -1){
                         c5 = false;
                     }
                 } catch (Exception e) {
                     System.out.print("Bad input type 1 for numerical to binary. 2 for binary to numerical:");
+                    scan.nextLine();
                 }
             }
 
