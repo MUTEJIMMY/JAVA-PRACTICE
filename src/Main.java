@@ -150,16 +150,20 @@ void main() {
 
 
             double userInput = 0.0;
-            boolean c5 = true;
-            while(c5) {
+            boolean negNum = false;
+            boolean c3 = true;
+            while(c3) {
                 try {
                     // get user input as double for Math.pow
                     userInput = scan.nextDouble();
-                    if(userInput > -1){
-                        c5 = false;
-                    }
+
+                        c3 = false;
+
+                        negNum = true;
+                        userInput = userInput * -1;
+
                 } catch (Exception e) {
-                    System.out.print("Bad input type 1 for numerical to binary. 2 for binary to numerical:");
+                    System.out.print("Bad input type type the number you want to convert to binary:");
                     scan.nextLine();
                 }
             }
@@ -189,11 +193,14 @@ void main() {
             }
 
             //this is just nice words
+        if(!negNum) {
             System.out.println("This is the user input: " + userInput + ". ");
-
+        }else{
+            System.out.println("This is the user input: -" + userInput + ". ");
+        }
             waiting();
 
-            System.out.println("This should be the 2^n that we are subtracting by: " + subTractor + ". ");
+            System.out.println("This should be the 2^n that we are using by: " + subTractor + ". ");
 
             //this is the array for our binary calculation, the size is our 2^n(subTractor) + 1 b/c we need to do one more calculation at 2^0 or sum like that
             int[] arr = new int[((int) i) + 1];
@@ -222,13 +229,22 @@ void main() {
 
             waiting();
 
-
+        if(!negNum) {
             System.out.println("Your original number was: " + userInput + ".");
+        }else{
+            System.out.println("Your original number was: -" + userInput + ".");
+        }
 
             waiting();
 
 
-            System.out.print("Your number in binary is :0b");
+
+
+            if(!negNum){
+                System.out.print("Your number in binary is :0b");
+            }else{
+                System.out.print("Your number in binary is :-0b");
+            }
 
             //loop for printing binary number from arr
 
