@@ -89,7 +89,23 @@ void main() {
 
         scan.nextLine();
 
-        System.out.print("Type in your number in binary, and I'll convert it to numerical: 0b");
+        System.out.print("Is your binary number negative? (Y/N): ");
+
+
+        String negReply = scan.nextLine();
+
+        boolean negNum1 = false;
+        if (Objects.equals(negReply, "Y") || Objects.equals(negReply, "y")) {
+
+            System.out.print("Type in your number in binary, and I'll convert it to numerical: -0b");
+            negNum1 = true;
+
+        } else {
+
+            System.out.print("Type in your number in binary, and I'll convert it to numerical: 0b");
+        }
+
+
 
         waiting();
         boolean c2 = true;
@@ -125,15 +141,21 @@ void main() {
             }
 
         }
-
-        System.out.println("The binary number you have chosen is 0b" + binaryNumber);
+        if(!negNum1) {
+            System.out.println("The binary number you have chosen is 0b" + binaryNumber);
+        }else{
+            System.out.println("The binary number you have chosen is -0b" + binaryNumber);
+        }
 
         waiting();
 
 
 
-
-        System.out.println("Here is your number answer: " + convertedBinaryNumber);
+        if(!negNum1) {
+            System.out.println("Here is your number answer: " + convertedBinaryNumber);
+        }else{
+            System.out.println("Here is your number answer: -" + convertedBinaryNumber);
+        }
 
         waiting();
 
