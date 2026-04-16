@@ -34,7 +34,6 @@ private double ConvertToNumerical(String binaryNumber){
 
         // we are checking if the spot in the number is 1
 
-        System.out.println("binary nmber in method is " + binaryNumber);
         if(binaryNumber.charAt(i) == '1'){
 
             //running total or adding
@@ -42,7 +41,7 @@ private double ConvertToNumerical(String binaryNumber){
         }else{
 
         }
-        if(binaryNumber.charAt(i) != 0 || binaryNumber.charAt(i) != 1){
+        if(binaryNumber.charAt(i) == 0 || binaryNumber.charAt(i) == 1){
             answer = -1;
         }
 
@@ -119,11 +118,13 @@ void main() {
 
             convertedBinaryNumber = ConvertToNumerical(binaryNumber);
 
-            System.out.print("Bad input try again, type in your number in binary: 0b");
 
-            scan.nextLine();
+            if(convertedBinaryNumber == -1) {
+                System.out.print("Bad input try again, type in your number in binary: 0b");
+                scan.nextLine();
 
-            binaryNumber = scan.nextLine();
+                binaryNumber = scan.nextLine();
+            }
 
         }
 
