@@ -150,11 +150,17 @@ void main() {
 
 
             double userInput = 0.0;
-            try {
-                // get user input as double for Math.pow
-                userInput = scan.nextDouble();
-            } catch (Exception e) {
-                System.out.print("Bad input type 1 for numerical to binary. 2 for binary to numerical:");
+            boolean c5 = true;
+            while(c5) {
+                try {
+                    // get user input as double for Math.pow
+                    userInput = scan.nextDouble();
+                    if(userInput > 0){
+                        c5 = false;
+                    }
+                } catch (Exception e) {
+                    System.out.print("Bad input type 1 for numerical to binary. 2 for binary to numerical:");
+                }
             }
 
         System.out.println();
