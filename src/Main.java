@@ -111,8 +111,7 @@ void main() {
                 System.out.println("Bad input, type in your number in binary: 0b");
             }
         }
-        scan.nextLine();
-        System.out.println();
+
         double convertedBinaryNumber = -1;
 
         while(convertedBinaryNumber == -1) {
