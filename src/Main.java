@@ -119,7 +119,6 @@ void main() {
 
 
 
-        waiting();
         boolean c2 = true;
         String binaryNumber = "";
         while(c2) {
@@ -199,7 +198,7 @@ void main() {
                         }
 
                 } catch (Exception e) {
-                    System.out.print("Bad input type type the number you want to convert to binary:");
+                    System.out.print("Bad input type the number you want to convert to binary:");
                     scan.nextLine();
                 }
             }
@@ -236,7 +235,7 @@ void main() {
         }
             waiting();
 
-            System.out.println("This should be the 2^n that we are using by: " + subTractor + ". ");
+            System.out.println("The highest power of 2 we are working with is: " + subTractor + ". ");
 
             //this is the array for our binary calculation, the size is our 2^n(subTractor) + 1 b/c we need to do one more calculation at 2^0 or sum like that
             int[] arr = new int[((int) i) + 1];
@@ -312,20 +311,35 @@ void main() {
         }
 
         System.out.println();
-        System.out.print("Do you want to do another conversion? (Y/N): ");
 
+        boolean running = true;
 
-        reply = scan.nextLine();
+        while(running) {
 
+            System.out.println("Do you want to do another conversion? (Y/N): ");
 
-        if (Objects.equals(reply, "Y") || Objects.equals(reply, "y")) {
+            reply = scan.nextLine();
 
-        } else {
+            if (Objects.equals(reply, "Y") || Objects.equals(reply, "y")) {
 
-            //check being false ends the while loop
-            check = false;
+                running = false;
 
+            } else if (Objects.equals(reply, "N") || Objects.equals(reply, "n")) {
+
+                running = check = false;
+            } else {
+                System.out.println("Bad Input try again.");
+            }
         }
+
+
+
+
+
+
+
+
+
 
     }
     System.out.println("Thank you for using my program");
