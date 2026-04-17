@@ -109,37 +109,42 @@ void main() {
     //scanner
     Scanner scan = new Scanner(System.in);
 
-
     boolean programRunning = true;
 
     String reply;
 
+    //this while loop is for the program to keep prompting the user in to do another conversion
     while (programRunning) {
 
-    System.out.print("Type 1 if you want to convert from binary to numerical. Type 2 if you want to convert from numerical to binary:");
+    System.out.print("Type 1 if you want to convert from binary to numerical." +
+            " Type 2 if you want to convert from numerical to binary:");
 
     int reCheck = 0;
 
     boolean menuInputLoop = true;
 
+        //this while loop is an input checker for the repeat of the program
         while(menuInputLoop) {
 
             try {
 
                 reCheck = scan.nextInt();
 
+                //this if statement checks is reCheck either 1 or 2. if true set our bool to false, else bad input
                 if(reCheck == 1 || reCheck == 2){
 
                     menuInputLoop = false;
 
                 } else{
 
-                    System.out.print("Bad input type 1 for numerical to binary. 2 for binary to numerical:");
+                    System.out.print("Bad input type 1 for numerical to binary." +
+                            " 2 for binary to numerical:");
 
                 }
             } catch (Exception e) {
 
-                System.out.print("Bad input type 1 for numerical to binary. 2 for binary to numerical:");
+                System.out.print("Bad input type 1 for numerical to binary." +
+                        " 2 for binary to numerical:");
 
                 //to remove the bad input
                 scan.nextLine();
@@ -148,31 +153,44 @@ void main() {
 
 
 
-
+    // if the user types 1 then we are converting a number from binary to numerical
     if(reCheck == 1){
 
+        //occasionally clearing the scanner
         scan.nextLine();
 
         boolean run = true;
 
         boolean negNum1 = false;
 
+        //this while loop is the input checker for asking the user if the number is negative
         while(run) {
 
             System.out.print("Is your binary number negative? (Y/N): ");
 
             String negReply = scan.nextLine();
 
+            //checking if the reply equals y or Y
             if (Objects.equals(negReply, "Y") || Objects.equals(negReply, "y")) {
 
-                System.out.print("Type in your number in binary, and I'll convert it to numerical: -0b");
+                System.out.print("Type in your number in binary, and I'll " +
+                        "convert it to numerical: -0b");
+                //if the number is negative we set this bool to true for later use
                 negNum1 = true;
+
+                //we set run to false so the loop terminates
                 run = false;
 
+            //checking if the reply equals n or N
             } else if (Objects.equals(negReply, "N") || Objects.equals(negReply, "n")) {
 
-                System.out.print("Type in your number in binary, and I'll convert it to numerical: 0b");
+                System.out.print("Type in your number in binary, and I'll " +
+                        "convert it to numerical: 0b");
+
+                //we set run to false so the loop terminates
                 run = false;
+
+            //if there answer is not y or n or Y or N it's a bad input
             } else {
                 System.out.println("Bad Input try again.");
             }
@@ -184,6 +202,7 @@ void main() {
 
         String binaryNumber = "";
 
+        //this while loop is the input checker to make sure that the binary number isn't empty
         while(binaryInputLoop) {
 
             try {
@@ -192,10 +211,10 @@ void main() {
 
                 if(!binaryNumber.isEmpty()){
                     binaryInputLoop = false;
+
                 }else{
                     System.out.print("Bad input, type in your number in binary: 0b");
                 }
-
             }
             catch(Exception e){
 
@@ -203,22 +222,31 @@ void main() {
             }
         }
 
+        //we set this var to -1 so the loop runs until it is false by giving us a valid conversion
         double convertedBinaryNumber = -1;
 
+        //this while loop will run until the method call gives us a valid converted binary number
         while(convertedBinaryNumber == -1) {
 
+            //method call will either give us a valid converted binary number or will return -1
             convertedBinaryNumber = ConvertToNumerical(binaryNumber);
 
-
+            //if the converted number is still -1 prompt the user to input another number and try again
             if(convertedBinaryNumber == -1) {
 
                 System.out.print("Bad input try again, type in your number in binary: 0b");
 
 
                 binaryNumber = scan.nextLine();
+
+                //we check if the user still inputted an empty answer for the String binary
+                if(binaryNumber.isEmpty()){
+                    convertedBinaryNumber = -1;
+                }
             }
 
         }
+        //if the user told us that the binary number was negative than we will set the number to be negative or not
         if(!negNum1) {
             System.out.println("The binary number you have chosen is 0b" + binaryNumber);
         }else{
@@ -228,7 +256,7 @@ void main() {
         waiting();
 
 
-
+        //if the user told us that the binary number was negative than we will set the number to be negative or not
         if(!negNum1) {
             System.out.println("Here is your number answer: " + convertedBinaryNumber);
         }else{
@@ -238,32 +266,32 @@ void main() {
         waiting();
 
     }
+
+    //if the user inputted 2 for the answer then we will convert a number to binary
     else if (reCheck == 2) {
-
-
-
-
 
             System.out.print("Type in the number you want to convert to binary: ");
 
-
-
-
             double userInput = 0.0;
 
+            //this will be used to check if the user wants to convert a negative number or not
             boolean negNum = false;
 
-            boolean decimalInputLoop = true;
+            boolean numericalInputLoop = true;
 
-            while(decimalInputLoop) {
+            //this while loop is the input checker for the number conversion
+            while(numericalInputLoop) {
 
                 try {
                     // get user input as double for Math.pow
                     userInput = scan.nextDouble();
 
-                        decimalInputLoop = false;
+                        numericalInputLoop = false;
 
+                        //if their number inputted is negative than we will multiply by -1 to make it a positive number
                         if(userInput < 0 ) {
+
+                            //since the number is negative we will make it positive and make the bool positive for later
                             negNum = true;
                             userInput = userInput * -1;
                         }
@@ -280,53 +308,59 @@ void main() {
             //clearing the scanner
             scan.nextLine();
 
+
             double counter;
             double subTractor;
             double[] arr1;
 
-            //this is our 2^n where n is subTractor
-              arr1 = Calculating(userInput);
+            //this calling our calculation method which will return our 2^n and our counter
+            arr1 = Calculating(userInput);
 
-              subTractor = arr1[0];
-              counter = arr1[1];
+            subTractor = arr1[0];
+            counter = arr1[1];
 
-            //this is just nice words
-        if(!negNum) {
-            System.out.println("This is the user input: " + userInput + ". ");
-        }
-        else{
-            System.out.println("This is the user input: -" + userInput + ". ");
-        }
+            //this if else is checking if the user had inputted a negative number in the beginning and print the right response
+            if(!negNum) {
+                System.out.println("This is the user input: " + userInput + ". ");
+            } else{
+                System.out.println("This is the user input: -" + userInput + ". ");
+            }
+
             waiting();
 
             System.out.println("The highest power of 2 we are working with is: " + subTractor + ". ");
 
+            //this will call our ConvertToBinary method and print our binary number as arr
             int[] arr = ConvertToBinary(userInput,counter);
 
+            waiting();
 
+            //this if else is checking if the user had inputted a negative number in the beginning and print the right response
+            if(!negNum) {
+                System.out.println("Your original number was: " + userInput + ".");
+            }
+            else{
+                System.out.println("Your original number was: -" + userInput + ".");
+            }
 
             waiting();
 
-        if(!negNum) {
-            System.out.println("Your original number was: " + userInput + ".");
-        }
-        else{
-            System.out.println("Your original number was: -" + userInput + ".");
-        }
+            //this if else is checking if the user had inputted a negative number in the beginning and print the right response
+            if(!negNum){
+                System.out.print("Your number in binary is :0b");
+            }
+            else{
+                System.out.print("Your number in binary is :-0b");
+            }
 
-            waiting();
-
-            if(!negNum){System.out.print("Your number in binary is :0b");}
-            else{System.out.print("Your number in binary is :-0b");}
+                //this bool is to be used so we can avoid printing a leading zero
+                boolean skipLeadingZero = true;
 
                 //loop for printing binary number from arr
-
-                boolean checking = true;
-
                 for (int k = 0; k < arr.length; k++) {
 
-                    if (arr[0] == 0 && checking) {
-                        checking = false;
+                    if (arr[0] == 0 && skipLeadingZero) {
+                        skipLeadingZero = false;
                     }
                     else {
                         System.out.print(arr[k]);
@@ -337,8 +371,10 @@ void main() {
 
         System.out.println();
 
+
         boolean continuePromptLoop = true;
 
+        //this while loop checks for good input
         while(continuePromptLoop) {
 
             System.out.println("Do you want to do another conversion? (Y/N): ");
