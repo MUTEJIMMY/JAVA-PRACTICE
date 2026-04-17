@@ -141,8 +141,7 @@ void main() {
                             " 2 for binary to numerical:");
 
                 }
-            } catch (Exception e) {
-
+            } catch (InputMismatchException e) {
                 System.out.print("Bad input type 1 for numerical to binary." +
                         " 2 for binary to numerical:");
 
