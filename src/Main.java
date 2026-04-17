@@ -34,7 +34,7 @@ private double ConvertToNumerical(String binaryNumber){
 
         //This is to see if the thing at i is not 1 or 0 if it isn't we set answer to -1
         }else if(binaryNumber.charAt(i) != '0' && binaryNumber.charAt(i) != '1'){
-            answer = -1;
+            return -1;
         }
 
         twoToTheN++;
@@ -213,12 +213,19 @@ void main() {
                     binaryInputLoop = false;
 
                 }else{
-                    System.out.print("Bad input, type in your number in binary: 0b");
+                    if(negNum1) {
+                        System.out.print("Bad input, type in your number in binary: 0b");
+                    }else{
+                        System.out.print("Bad input, type in your number in binary: -0b");
+                    }
                 }
             }
             catch(Exception e){
-
-                System.out.print("Bad input, type in your number in binary: 0b");
+                if(negNum1) {
+                    System.out.print("Bad input, type in your number in binary: 0b");
+                }else{
+                    System.out.print("Bad input, type in your number in binary: -0b");
+                }
             }
         }
 
@@ -234,8 +241,11 @@ void main() {
             //if the converted number is still -1 prompt the user to input another number and try again
             if(convertedBinaryNumber == -1) {
 
-                System.out.print("Bad input try again, type in your number in binary: 0b");
-
+                if(!negNum1) {
+                    System.out.print("Bad input try again, type in your number in binary: 0b");
+                }else{
+                    System.out.print("Bad input try again, type in your number in binary: -0b");
+                }
 
                 binaryNumber = scan.nextLine();
 
