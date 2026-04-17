@@ -116,12 +116,16 @@ void main() {
                 //Take the user input as a string so we can iterate through it as an array
                 binaryNumber = scan.nextLine();
 
-                c2 = false;
+                if(!binaryNumber.isEmpty()){
+                    c2 = false;
+                }else{
+                    System.out.print("Bad input, type in your number in binary: 0b");
+                }
 
             }
             catch(Exception e){
 
-                System.out.println("Bad input, type in your number in binary: 0b");
+                System.out.print("Bad input, type in your number in binary: 0b");
             }
         }
 
@@ -172,9 +176,13 @@ void main() {
 
 
             double userInput = 0.0;
+
             boolean negNum = false;
+
             boolean c3 = true;
+
             while(c3) {
+
                 try {
                     // get user input as double for Math.pow
                     userInput = scan.nextDouble();
@@ -192,29 +200,21 @@ void main() {
                 }
             }
 
-        System.out.println();
+
+            System.out.println();
 
             //clearing the scanner
             scan.nextLine();
 
-            //this is our incrementor for the while loop as a double for Math.pow
-            double i = 0.0;
+            double counter = 0;
+            double subTractor;
+            double[] arr1;
 
             //this is our 2^n where n is subTractor
-            double subTractor = 0.0;
+              arr1 = Calculating(userInput,counter);
 
-            //this loop checks the user input and find outs which 2^n we have to subtract by for the binary.
-            while (userInput > Math.pow(2.0, i)) {
-
-                //increment before we check
-                i++;
-
-                //this is to set the 2^n to a var to use only when the 2^n+1 is bigger than user input.
-                if (Math.pow(2.0, i) <= userInput) {
-                    subTractor = Math.pow(2.0, i);
-                }
-
-            }
+              subTractor = arr1[0];
+              counter = arr1[1];
 
             //this is just nice words
         if(!negNum) {
@@ -227,13 +227,13 @@ void main() {
             System.out.println("The highest power of 2 we are working with is: " + subTractor + ". ");
 
             //this is the array for our binary calculation, the size is our 2^n(subTractor) + 1 b/c we need to do one more calculation at 2^0 or sum like that
-            int[] arr = new int[((int) i) + 1];
+            int[] arr = new int[((int) counter) + 1];
 
             //this is the copy we are modifying
             double userInputCopy = userInput;
 
             //this is the for loop for calculation. we make a new var j, and we decrement b/c j is some 2^n, we also run until j is less than 0. that is denoted by j>=0
-            for (double j = i; j >= 0; j--) {
+            for (double j = counter; j >= 0; j--) {
 
                 //b/c j is some 2^n in order to add it to the first position we need to subtract by the length of our array to flip the indexing
                 int posJ = arr.length - ((int) j) - 1;
@@ -334,11 +334,31 @@ void main() {
     System.out.println("Thank you for using my program");
 }
 
+private double[] Calculating(double userInput, double subTractor){
+    //this is our incrementor for the while loop as a double for Math.pow
+    double counter = 0.0;
+
+
+    //this loop checks the user input and find outs which 2^n we have to subtract by for the binary.
+    while (userInput > Math.pow(2.0, counter)) {
+
+        //increment before we check
+        counter++;
+
+        //this is to set the 2^n to a var to use only when the 2^n+1 is bigger than user input.
+        if (Math.pow(2.0, counter) <= userInput) {
+            subTractor = Math.pow(2.0, counter);
+        }
+
+    }
+
+    return new double[]{subTractor,counter};
+}
+
 //TODO methods for later to make code cleaner
 private double ConvertToBinary(){
 
 
 
-    //this return will be the double for the code.
     return 0.0;
 }
